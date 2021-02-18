@@ -32,8 +32,9 @@ function selectColor(color) {
 
 // Harmony 
 function calculateHarmony(baseColor) {
+  console.log("calculateHarmony");
   const harmony = document.getElementsByName("harmony").value;
-
+  //click event
   if (harmony === "analogous") {
     calculateAnalogous(baseColor);
   } else if (harmony === "monochromatic") {
@@ -51,23 +52,109 @@ function calculateHarmony(baseColor) {
 
 // H shifted some degrees (S&L kept constant)
 function calculateAnalogous(baseColor) {
-  
+  console.log("calculateAnalogous");
+  if (index === 1) {
+    baseColor = {h: baseColor.h + 20, s: baseColor.s, l: baseColor.l};    
+  } else if (index === 2) {
+    baseColor = {h: baseColor.h + 10, s: baseColor.s, l: baseColor.l};
+  } else if (index === 3) {
+    baseColor = {h: baseColor.h, s: baseColor.s, l: baseColor.l};
+  } else if (index === 4) {
+    baseColor = {h: baseColor.h - 10, s: baseColor.s, l: baseColor.l};
+  } else if (index === 5) {
+    baseColor = {h: baseColor.h - 20, s: baseColor.s, l: baseColor.l};
+  }
 }
 
 // H constant each color more s, less s, more l, less l 
-function calculateMonochromatic(baseColor) {}
+function calculateMonochromatic(baseColor) {
+  console.log("alculateMonochromatic");
+  if (index === 1) {
+    baseColor = {h: baseColor.h, s: baseColor.s + 20, l: baseColor.l};
+  } else if (index === 2) {
+    baseColor = {h: baseColor.h, s: baseColor.s - 20, l: baseColor.l};
+  } else if (index === 3) {
+    baseColor = {h: baseColor.h, s: baseColor.s, l: baseColor.l};
+  } else if (index === 4) {
+    baseColor = {h: baseColor.h, s: baseColor.s, l: baseColor.l - 20};
+  } else if (index === 5) {
+    baseColor = {h: baseColor.h, s: baseColor.s, l: baseColor.l + 20};
+  }
+  
+  return baseColor;
+}
 
-// 2 colors are shifted 60/120 degreezs from base / also shift thm adjusting the l 
-function calculateTriad(baseColor) {}
+// 2 colors are shifted 60/120 degreezs from base / also shift them adjusting the l 
+function calculateTriad(baseColor) {
+  console.log("calculateTriad");
+  if (index === 1) {
+    baseColor = {h: baseColor.h + 120, s: baseColor.s, l: baseColor.l + 20};
+  } else if (index === 2) {
+    baseColor = {h: baseColor.h + 60, s: baseColor.s, l: baseColor.l - 20};
+  } else if (index === 3) {
+    baseColor = {h: baseColor.h, s: baseColor.s, l: baseColor.l};
+  } else if (index === 4) {
+    baseColor = {h: baseColor.h + 60, s: baseColor.s, l: baseColor.l};
+  } else if (index === 5) {
+    baseColor = {h: baseColor.h + 120, s: baseColor.s, l: baseColor.l};
+  }
+
+  return baseColor;
+}
 
 // one color is 180 degrees from base / other three?
-function calculateComplementary(baseColor) {}
+function calculateComplementary(baseColor) {
+  console.log("calculateComplementary");
+  if (index === 1) {
+    baseColor = {h: baseColor.h + 180, s: baseColor.s, l: baseColor.l};
+  } else if (index === 2) {
+    baseColor = {h: baseColor.h + 140, s: baseColor.s, l: baseColor.l};
+  } else if (index === 3) {
+    baseColor = {h: baseColor.h, s: baseColor.s, l: baseColor.l};
+  } else if (index === 4) {
+    baseColor = {h: baseColor.h + 100, s: baseColor.s, l: baseColor.l};
+  } else if (index === 5) {
+    baseColor = {h: baseColor.h + 60, s: baseColor.s, l: baseColor.l}; 
+  }
+
+  return baseColor;
+}
 
 // combine complementary and analogous
-function calculateCompound(baseColor) {}
+function calculateCompound(baseColor) {
+  console.log("calculateCompound");
+  if (index === 1) {
+
+  } else if (index === 2) {
+
+  } else if (index === 3) {
+    baseColor = {h: baseColor.h, s: baseColor.s, l: baseColor.l};
+  } else if (index === 4) {
+
+  } else if (index === 5) {
+    
+  }
+
+  return baseColor;
+}
 
 // H&S is constant / L varies 
-function calculateShades(baseColor) {}
+function calculateShades(baseColor) {
+  console.log("calculateShades");
+  if (index === 1) {
+    baseColor = {h: baseColor.h, s: baseColor.s, l: baseColor.l + 100};
+  } else if (index === 2) {
+    baseColor = {h: baseColor.h, s: baseColor.s, l: baseColor.l + 50};
+  } else if (index === 3) {
+    baseColor = {h: baseColor.h, s: baseColor.s, l: baseColor.l};
+  } else if (index === 4) {
+    baseColor = {h: baseColor.h, s: baseColor.s, l: baseColor.l - 50};
+  } else if (index === 5) {
+    baseColor = {h: baseColor.h, s: baseColor.s, l: baseColor.l - 100}; 
+  }
+
+  return baseColor;
+}
 
 // called from the eventlistener
 function displayColorInfo(color, index) {
