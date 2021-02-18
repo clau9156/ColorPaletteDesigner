@@ -16,20 +16,52 @@ function getColorInput(event) {
 
 function selectColor(color) {
   console.log("selectColor");
+  console.log(color);
   const rgb = hexToRgb(color);
+  console.log(rgb);
   const hslBase = rgbToHsl(rgb);
+  console.log(hslBase);
 
 
-  const baseColor = rgbToHsl(hexToRgb());
+  const baseColor = rgbToHsl(hexToRgb(color));
+  console.log(baseColor);
 
   calculateHarmony(baseColor);
+  // displayColorInfo(color, index);
 }
 
+// Harmony 
 function calculateHarmony(baseColor) {
-  const harmony = document.getElementsByName("harmony");
+  const harmony = document.getElementsByName("harmony").value;
 
-  if ( === "")
+  if (harmony === "analogous") {
+    calculateAnalogous(baseColor);
+  } else if (harmony === "monochromatic") {
+    calculateMonochromatic(baseColor);
+  } else if (harmony === "triad") {
+    calculateTriad(baseColor);
+  } else if (harmony === "complementary") {
+    calculateComplementary(baseColor);
+  } else if (harmony === "compound") {
+    calculateCompound(baseColor);
+  } else if (harmony === "shades") {
+    calculateShades(baseColor);
+  }
 }
+
+// H shifted some degrees (S&L kept constant)
+function calculateAnalogous(baseColor) {}
+
+// H constant each color more s, less s, more l, less l 
+function calculateMonochromatic(baseColor) {}
+
+function calculateTriad(baseColor) {}
+
+function calculateComplementary(baseColor) {}
+
+function calculateCompound(baseColor) {}
+
+function calculateShades(baseColor) {}
 
 // called from the eventlistener
 function displayColorInfo(color, index) {
@@ -177,7 +209,7 @@ function showHslColor(hsl, index) {
   document.querySelector(`#colorinfo${index} .hsl .value`).textContent = `${hsl.h}, ${hsl.s}, ${hsl.l}`;
 }
 
-function showColorBox(rgb , index) {
+function showColorBox(rgb, index) {
   console.log("showColorBox");
   document.querySelector(`#colorinfo${index} .colorbox`).style.backgroundColor = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
 }
