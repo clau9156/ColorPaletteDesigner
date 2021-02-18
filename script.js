@@ -1,7 +1,7 @@
 "use strict";
 
 window.addEventListener("DOMContentLoaded",init);
-
+let index = 3;
 function init() {
   console.log("init");
   // set up the eventlistener
@@ -27,7 +27,7 @@ function selectColor(color) {
   console.log(baseColor);
 
   calculateHarmony(baseColor);
-  // displayColorInfo(color, index);
+  displayColorInfo(color, index);
 }
 
 // Harmony 
@@ -50,17 +50,23 @@ function calculateHarmony(baseColor) {
 }
 
 // H shifted some degrees (S&L kept constant)
-function calculateAnalogous(baseColor) {}
+function calculateAnalogous(baseColor) {
+  
+}
 
 // H constant each color more s, less s, more l, less l 
 function calculateMonochromatic(baseColor) {}
 
+// 2 colors are shifted 60/120 degreezs from base / also shift thm adjusting the l 
 function calculateTriad(baseColor) {}
 
+// one color is 180 degrees from base / other three?
 function calculateComplementary(baseColor) {}
 
+// combine complementary and analogous
 function calculateCompound(baseColor) {}
 
+// H&S is constant / L varies 
 function calculateShades(baseColor) {}
 
 // called from the eventlistener
